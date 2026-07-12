@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" width="600" height="720" role="img" aria-label="Portrait placeholder for Dr. Salil Bhargava">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0E5049" />
+      <stop offset="1" stop-color="#08302E" />
+    </linearGradient>
+    <linearGradient id="coat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FBFCFB" />
+      <stop offset="1" stop-color="#E3ECE9" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="720" fill="url(#bg)" />
+  <!-- shoulders / white coat -->
+  <path d="M300 470 C170 470 120 560 110 720 L490 720 C480 560 430 470 300 470 Z" fill="url(#coat)" />
+  <path d="M300 470 L300 720" stroke="#CBD8D4" stroke-width="3" />
+  <!-- stethoscope hint -->
+  <path d="M258 486 C250 560 270 610 300 610 C330 610 350 560 342 486" fill="none" stroke="#2FA192" stroke-width="7" stroke-linecap="round" />
+  <circle cx="300" cy="628" r="14" fill="none" stroke="#2FA192" stroke-width="7" />
+  <!-- neck -->
+  <rect x="272" y="420" width="56" height="70" rx="24" fill="#D8B58C" />
+  <!-- head -->
+  <circle cx="300" cy="330" r="112" fill="#E4C29B" />
+  <!-- hair -->
+  <path d="M196 316 C196 250 250 214 300 214 C350 214 404 250 404 316 C404 300 372 286 300 286 C228 286 196 300 196 316 Z" fill="#4A4A4A" />
+  <!-- glasses -->
+  <g fill="none" stroke="#3B4A48" stroke-width="5">
+    <circle cx="262" cy="330" r="26" />
+    <circle cx="338" cy="330" r="26" />
+    <path d="M288 330 h24" />
+  </g>
+  <text x="300" y="700" font-family="Inter, sans-serif" font-size="20" fill="#0E5049" text-anchor="middle" opacity="0.0">Portrait placeholder</text>
+</svg>

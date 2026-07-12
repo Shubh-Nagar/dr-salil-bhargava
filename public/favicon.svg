@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#0E5049" />
+  <!-- Stylised bronchial / breath mark -->
+  <g fill="none" stroke="#5FBFB2" stroke-width="3.2" stroke-linecap="round">
+    <path d="M32 14 V30" />
+    <path d="M32 30 C24 32 20 40 20 50" />
+    <path d="M32 30 C40 32 44 40 44 50" />
+    <path d="M20 50 q-4 0 -4 -4" />
+    <path d="M44 50 q4 0 4 -4" />
+  </g>
+  <circle cx="32" cy="13" r="3.4" fill="#B9893E" />
+</svg>

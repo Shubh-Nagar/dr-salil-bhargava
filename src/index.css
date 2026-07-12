@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    scroll-behavior: smooth;
+    /* Offset anchored sections so the sticky header never covers headings. */
+    scroll-padding-top: 6rem;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-paper font-sans text-slate-body antialiased;
+  }
+
+  ::selection {
+    @apply bg-breath/25 text-ink;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-ink;
+    text-wrap: balance;
+  }
+
+  /* Visible keyboard focus everywhere — accessibility quality floor. */
+  :focus-visible {
+    outline: 2px solid theme('colors.breath.DEFAULT');
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Uppercase tracked eyebrow used above section headings. */
+  .eyebrow {
+    @apply font-mono text-[0.72rem] uppercase tracking-eyebrow text-breath;
+  }
+
+  /* Consistent horizontal page gutters + max width. */
+  .container-x {
+    @apply mx-auto w-full max-w-container px-5 sm:px-8;
+  }
+
+  /* Primary call-to-action button. */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brass px-6 py-3
+      text-sm font-semibold text-ink shadow-sm transition
+      hover:bg-brass-light hover:shadow-md focus-visible:outline-offset-4
+      active:scale-[0.98];
+  }
+
+  /* Secondary / outline button, tuned for dark and light backgrounds. */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3
+      text-sm font-semibold transition active:scale-[0.98];
+  }
+}
+
+/* The breathing aura signature respects users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
