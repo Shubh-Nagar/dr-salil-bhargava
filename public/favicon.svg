@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="14" fill="#0E5049" />
+  <rect width="64" height="64" rx="14" fill="#0B5D8C" />
   <!-- Stylised bronchial / breath mark -->
-  <g fill="none" stroke="#5FBFB2" stroke-width="3.2" stroke-linecap="round">
+  <g fill="none" stroke="#7DD3FC" stroke-width="3.2" stroke-linecap="round">
     <path d="M32 14 V30" />
     <path d="M32 30 C24 32 20 40 20 50" />
     <path d="M32 30 C40 32 44 40 44 50" />

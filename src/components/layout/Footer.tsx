@@ -10,8 +10,8 @@ export default function Footer() {
       <div className="container-x grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
         {/* Brand */}
         <div className="lg:pr-6">
-          <p className="font-display text-xl font-semibold text-white">{site.doctor.name}</p>
-          <p className="mt-1 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-breath">
+          <p className="font-display text-2xl font-semibold text-white sm:text-3xl">{site.doctor.name}</p>
+          <p className="mt-1.5 font-mono text-[0.8rem] uppercase tracking-[0.16em] text-breath">
             {site.doctor.credentials}
           </p>
           <p className="mt-4 text-sm leading-relaxed text-mist/70">

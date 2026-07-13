@@ -57,7 +57,7 @@ export default function BreathingExercise() {
         // this section used before the video, no autoplaying motion at all.
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(47,161,146,0.14)_0%,rgba(47,161,146,0.04)_45%,transparent_70%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(14,165,233,0.14)_0%,rgba(14,165,233,0.04)_45%,transparent_70%)]"
         />
       ) : (
         <>

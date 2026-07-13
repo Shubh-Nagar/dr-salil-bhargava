@@ -43,7 +43,7 @@ export default function Navbar() {
           <a href="#home" className="flex items-center gap-3" aria-label="Dr. Salil Bhargava — home">
             <Monogram />
             <span className="leading-tight">
-              <span className="block font-display text-lg font-semibold text-ink">
+              <span className="block font-display text-xl font-semibold text-pine">
                 {site.doctor.name}
               </span>
               <span className="block font-mono text-[0.62rem] uppercase tracking-[0.18em] text-slate-muted">
@@ -130,7 +130,7 @@ function Monogram() {
   return (
     <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-pine">
       <svg viewBox="0 0 64 64" className="h-6 w-6" fill="none">
-        <g stroke="#5FBFB2" strokeWidth="3.4" strokeLinecap="round">
+        <g stroke="#7DD3FC" strokeWidth="3.4" strokeLinecap="round">
           <path d="M32 14 V30" />
           <path d="M32 30 C24 32 20 40 20 50" />
           <path d="M32 30 C40 32 44 40 44 50" />

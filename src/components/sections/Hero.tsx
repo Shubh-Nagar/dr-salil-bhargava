@@ -54,7 +54,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.05 }}
           >
             {site.hero.headlineLead}{' '}
-            <span className="italic text-pine">{site.hero.headlineEmphasis}</span>
+            <span className="italic text-breath">{site.hero.headlineEmphasis}</span>
           </motion.h1>
 
           <motion.p
@@ -125,8 +125,8 @@ export default function Hero() {
             />
             {/* Credential ribbon */}
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 to-transparent p-5 pt-10">
-              <p className="font-display text-lg font-semibold text-white">{site.doctor.name}</p>
-              <p className="font-mono text-[0.66rem] uppercase tracking-[0.14em] text-breath-light">
+              <p className="font-display text-2xl font-semibold text-white sm:text-3xl">{site.doctor.name}</p>
+              <p className="mt-1 font-mono text-[0.8rem] uppercase tracking-[0.14em] text-breath-light">
                 {site.doctor.credentials}
               </p>
             </div>
@@ -158,7 +158,7 @@ function BreathingAura({ reduce }: { reduce: boolean }) {
       <div
         className={[
           'absolute h-[112%] w-[112%] rounded-full',
-          'bg-[radial-gradient(circle,rgba(47,161,146,0.20)_0%,rgba(47,161,146,0.06)_45%,transparent_70%)]',
+          'bg-[radial-gradient(circle,rgba(14,165,233,0.20)_0%,rgba(14,165,233,0.06)_45%,transparent_70%)]',
           reduce ? '' : 'animate-breathe',
         ].join(' ')}
       />

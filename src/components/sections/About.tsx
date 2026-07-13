@@ -22,7 +22,7 @@ export default function About() {
           <Reveal className="mt-10">
             <div className="mb-3 flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-breath" aria-hidden="true" />
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-ink">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-pine">
                 Professional Memberships
               </h3>
             </div>
@@ -47,7 +47,7 @@ export default function About() {
                 <GraduationCap className="h-5 w-5 text-breath-light" aria-hidden="true" />
               </span>
               <div>
-                <p className="font-display text-lg font-semibold text-ink">Education & Training</p>
+                <p className="font-display text-lg font-semibold text-pine">Education & Training</p>
                 <p className="font-mono text-[0.66rem] uppercase tracking-[0.14em] text-slate-muted">
                   MGM Medical College, Indore
                 </p>

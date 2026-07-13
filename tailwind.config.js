@@ -6,30 +6,30 @@ export default {
       /**
        * Design tokens for Dr. Salil Bhargava's site.
        * The identity is grounded in his world — breath, air, respiration —
-       * so the palette leans into a calm, clinical pine-teal rather than the
-       * generic corporate-blue "doctor template". A restrained brass accent
-       * carries prestige (awards, the headline stat) without going cold.
+       * expressed through a calm, clinical sky-blue rather than a cold
+       * corporate navy. A restrained brass accent carries prestige (awards,
+       * the headline stat) without competing with it.
        */
       colors: {
-        ink: '#08302E', // deepest teal-black — dark sections, primary text
+        ink: '#0A2540', // deepest blue-black — dark sections, primary text
         pine: {
-          DEFAULT: '#0E5049', // primary brand
-          600: '#0C453F',
-          700: '#0A3A35',
+          DEFAULT: '#0B5D8C', // primary brand
+          600: '#094A70',
+          700: '#073955',
         },
         breath: {
-          DEFAULT: '#2FA192', // vitality / breath accent (teal)
-          light: '#5FBFB2',
+          DEFAULT: '#0EA5E9', // vitality / breath accent (sky blue)
+          light: '#7DD3FC',
         },
         brass: {
           DEFAULT: '#B9893E', // prestige accent — used sparingly
           light: '#D0A968',
         },
-        mist: '#EAF3F0', // soft light section background
-        paper: '#FBFCFB', // page background
+        mist: '#EAF4FB', // soft light section background
+        paper: '#FBFCFE', // page background
         slate: {
-          body: '#3B4A48', // body text on light
-          muted: '#6B7B78', // secondary text
+          body: '#33424F', // body text on light
+          muted: '#64757F', // secondary text
         },
       },
       fontFamily: {

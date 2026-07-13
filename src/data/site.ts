@@ -62,9 +62,9 @@ export const site = {
   },
 
   contact: {
-    phoneDisplay: '+91 98270 60404',
-    phoneHref: 'tel:+919827060404',
-    whatsappHref: 'https://wa.me/919827060404',
+    phoneDisplay: '+91 70890 40404',
+    phoneHref: 'tel:+917089040404',
+    whatsappHref: 'https://wa.me/917089040404',
     email: 'bhargavasalil@hotmail.com',
     emailHref: 'mailto:bhargavasalil@hotmail.com',
     clinicName: 'Gyanpushp Research Center for Chest & Allergy Diseases',
@@ -73,9 +73,7 @@ export const site = {
     mapEmbedSrc:
       'https://www.google.com/maps?q=Dhar%20Kothi%2C%20Indore%2C%20Madhya%20Pradesh&output=embed',
     hours: [
-      { day: 'Monday – Friday', time: '9:00 AM – 8:00 PM' },
-      { day: 'Saturday', time: '10:00 AM – 8:00 PM' },
-      { day: 'Sunday', time: 'Closed' },
+      { day: 'All Days', time: '6:00 PM – 8:30 PM' },
     ],
     socials: [
       { label: 'Facebook', href: '#' },
@@ -224,6 +222,11 @@ export const site = {
       name: 'Sleep Study (Polysomnography)',
       desc: 'Overnight recording of breathing, oxygen and sleep stages to diagnose sleep apnea and related disorders.',
       reason: 'Snoring / suspected sleep apnea',
+    },
+    {
+      icon: Stethoscope,
+      name: 'Consultation',
+      desc: 'A thorough one-on-one consultation with Dr. Bhargava — history, examination and a clear, personalized plan for your respiratory concern.',
     },
     {
       icon: FlaskConical,

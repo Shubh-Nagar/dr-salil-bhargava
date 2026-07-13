@@ -9,7 +9,7 @@ import { site } from '@/data/site';
 // not user data — "featured" is meant to travel with the item if reordered.
 const BENTO_SPANS: Record<number, string> = {
   0: 'lg:col-span-2', // Sleep Study — wide tile, breaks the grid's rhythm
-  1: 'lg:col-span-2 lg:row-span-2', // PFT/Spirometry — flagship diagnostic, echoes the SpiroDivider motif
+  1: 'lg:col-span-2 lg:row-span-2', // Consultation — flagship, the primary way patients start
 };
 
 /** In-clinic diagnostic & therapeutic services, presented as a path rather than a catalogue. */
@@ -48,7 +48,7 @@ export default function Services() {
                   <h3
                     className={[
                       'mt-4 font-semibold leading-snug',
-                      featured ? 'text-white' : 'text-ink',
+                      featured ? 'text-white' : 'text-pine',
                     ].join(' ')}
                   >
                     {service.name}

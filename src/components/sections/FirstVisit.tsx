@@ -33,7 +33,7 @@ export default function FirstVisit() {
                   <span className="mt-4 flex h-12 w-12 items-center justify-center rounded-xl bg-breath/10 text-pine">
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </span>
-                  <h3 className="mt-4 font-semibold text-ink">{step.title}</h3>
+                  <h3 className="mt-4 font-semibold text-pine">{step.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-muted">{step.desc}</p>
                 </article>
                 {i < steps.length - 1 && (

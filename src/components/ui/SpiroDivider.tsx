@@ -17,7 +17,7 @@ import { site } from '@/data/site';
 export default function SpiroDivider({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
   const reduce = useReducedMotion();
   const [open, setOpen] = useState(false);
-  const stroke = tone === 'dark' ? '#5FBFB2' : '#2FA192';
+  const stroke = tone === 'dark' ? '#7DD3FC' : '#0EA5E9';
 
   return (
     <div className="container-x relative py-2">

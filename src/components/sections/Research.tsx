@@ -53,7 +53,7 @@ export default function Research() {
                   <h3
                     className={[
                       'text-lg font-semibold',
-                      featured ? 'text-white' : 'text-ink',
+                      featured ? 'text-white' : 'text-pine',
                     ].join(' ')}
                   >
                     {item.title}

@@ -164,7 +164,7 @@ export default function Contact() {
             {sent ? (
               <div className="flex min-h-[22rem] flex-col items-center justify-center text-center">
                 <CheckCircle2 className="h-14 w-14 text-breath" aria-hidden="true" />
-                <h3 className="mt-4 text-2xl font-semibold text-ink">Almost there!</h3>
+                <h3 className="mt-4 text-2xl font-semibold text-pine">Almost there!</h3>
                 <p className="mt-2 max-w-xs text-sm text-slate-muted">
                   WhatsApp should have opened with your request pre-filled — just hit send. If it
                   didn’t open, please call us at {site.contact.phoneDisplay}.

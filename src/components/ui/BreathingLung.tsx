@@ -54,17 +54,17 @@ function LungSvg() {
       {/* Soft lung-lobe silhouettes */}
       <path
         d="M95 108 C58 120 38 182 48 252 C57 312 98 332 128 300 C150 268 138 178 118 128 C113 116 104 110 95 108 Z"
-        fill="#2FA192"
+        fill="#0EA5E9"
         fillOpacity="0.12"
       />
       <path
         d="M205 108 C242 120 262 182 252 252 C243 312 202 332 172 300 C150 268 162 178 182 128 C187 116 196 110 205 108 Z"
-        fill="#2FA192"
+        fill="#0EA5E9"
         fillOpacity="0.12"
       />
 
       {/* Bronchial tree */}
-      <g stroke="#5FBFB2" strokeWidth="3.2" strokeLinecap="round">
+      <g stroke="#7DD3FC" strokeWidth="3.2" strokeLinecap="round">
         <path d="M150 20 V88" />
         <path d="M150 88 C120 98 100 118 95 148" />
         <path d="M150 88 C180 98 200 118 205 148" />

@@ -34,7 +34,7 @@ export default function Expertise() {
                     </span>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-lg font-semibold text-ink">{item.name}</h3>
+                    <h3 className="text-lg font-semibold text-pine">{item.name}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-slate-muted">{item.desc}</p>
                     <div className="mt-4">
                       <MicroCTA reason={item.reason} />
