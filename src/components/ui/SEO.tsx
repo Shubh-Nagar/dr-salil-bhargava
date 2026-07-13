@@ -14,7 +14,7 @@ const SITE_URL = 'https://drsalilbhargava.com';
  */
 export default function SEO({
   title = 'Dr. Salil Bhargava | Pulmonologist & Respiratory Medicine Specialist, Indore',
-  description = 'Senior Pulmonologist and Professor & Head of Respiratory Medicine, MGM Medical College Indore. 28+ years treating asthma, COPD, TB, sleep disorders and allergy. Book an appointment.',
+  description = 'Senior Pulmonologist, Professor & Head of Respiratory Medicine at Amaltas Institute of Medical Sciences, Dewas and Pro-Chancellor of Amaltas University. 28+ years treating asthma, COPD, TB, sleep disorders and allergy. Book an appointment.',
   path = '/',
 }: SEOProps) {
   const url = `${SITE_URL}${path}`;

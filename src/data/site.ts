@@ -7,7 +7,8 @@
  *  have to hunt through JSX to update text.
  *
  *  Content is based on Dr. Salil Bhargava's verified public profile
- *  (Professor & Head of Respiratory Medicine, MGM Medical College Indore;
+ *  (Professor & Head of Respiratory Medicine, Amaltas Institute of Medical
+ *  Sciences, Dewas & Pro-Chancellor, Amaltas University;
  *  Clean Air Champion, Doctors For Clean Air). Replace the placeholder
  *  portrait in /public and wire the contact form to your backend/Formspree.
  */
@@ -49,7 +50,7 @@ export const site = {
     shortName: 'Dr. Bhargava',
     credentials: 'MBBS, MD, DTCD, DNB (Respiratory Medicine)',
     title: 'Pulmonologist & Respiratory Medicine Specialist',
-    role: 'Professor & Head, Department of Respiratory Medicine — MGM Medical College, Indore',
+    role: 'Professor & Head, Department of Respiratory Medicine, Amaltas Institute of Medical Sciences, Dewas · Pro-Chancellor, Amaltas University',
     yearsExperience: 28,
     location: 'Indore, Madhya Pradesh',
     portrait: '/assets/sir-photo.webp',
@@ -94,7 +95,7 @@ export const site = {
   // AuthorityCluster a stable lookup (e.g. patient count) independent of order/index.
   stats: [
     { key: 'years', value: '28+', label: 'Years of practice' },
-    { key: 'title', value: 'Prof. & HOD', label: 'Respiratory Medicine, MGM' },
+    { key: 'title', value: 'Prof. & HOD', label: 'Respiratory Medicine, Amaltas' },
     { key: 'services', value: '8+', label: 'Diagnostic services' },
     { key: 'patients', value: '50k+', label: 'Patients cared for' },
   ] as { key: string; value: string; label: string }[],
@@ -102,7 +103,7 @@ export const site = {
   about: {
     lead: 'A physician, an educator, and a clean-air advocate.',
     paragraphs: [
-      'Dr. Salil Bhargava is a Pulmonologist and Respiratory Medicine Specialist based in Indore, and Professor & Head of the Department of Respiratory Medicine at Mahatma Gandhi Memorial (MGM) Medical College. Over 28+ years he has cared for tens of thousands of patients with conditions ranging from asthma and COPD to tuberculosis, interstitial lung disease and complex sleep disorders.',
+      'Dr. Salil Bhargava is a Pulmonologist and Respiratory Medicine Specialist based in Indore, currently Professor & Head of the Department of Respiratory Medicine at Amaltas Institute of Medical Sciences, Dewas, and Pro-Chancellor of Amaltas University. Over 28+ years he has cared for tens of thousands of patients with conditions ranging from asthma and COPD to tuberculosis, interstitial lung disease and complex sleep disorders.',
       'He led Indore’s dedicated COVID facility at the MRTB Hospital through the pandemic, and continues to teach and mentor the next generation of chest physicians. As a Clean Air Champion with Doctors For Clean Air, he has spent years raising public awareness of the link between air pollution and respiratory health across Madhya Pradesh.',
       'His approach is unhurried and evidence-based: careful listening, precise diagnostics, and treatment plans explained in language patients and families can act on with confidence.',
     ],
@@ -275,6 +276,16 @@ export const site = {
   timeline: [
     {
       year: 'Present',
+      role: 'Pro-Chancellor',
+      org: 'Amaltas University, Dewas',
+    },
+    {
+      year: 'Present',
+      role: 'Professor & Head, Department of Respiratory Medicine',
+      org: 'Amaltas Institute of Medical Sciences, Dewas',
+    },
+    {
+      year: 'Former',
       role: 'Professor & Head, Department of Respiratory Medicine',
       org: 'MGM Medical College, Indore',
     },

@@ -1,6 +1,6 @@
 # Dr. Salil Bhargava — Official Website
 
-A modern, fast, accessible single-page personal-branding site for **Dr. Salil Bhargava**, Pulmonologist & Respiratory Medicine Specialist, Indore (Professor & Head of Respiratory Medicine, MGM Medical College).
+A modern, fast, accessible single-page personal-branding site for **Dr. Salil Bhargava**, Pulmonologist & Respiratory Medicine Specialist, Indore (Professor & Head of Respiratory Medicine, Amaltas Institute of Medical Sciences, Dewas & Pro-Chancellor, Amaltas University).
 
 Built with **React 18 + Vite + TypeScript + Tailwind CSS + Framer Motion + React Router v6 + Lucide**.
 
