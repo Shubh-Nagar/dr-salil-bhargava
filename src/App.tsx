@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import MobileActionBar from '@/components/layout/MobileActionBar';
 import Home from '@/pages/Home';
 
 /**
@@ -11,7 +12,10 @@ import Home from '@/pages/Home';
  */
 export default function App() {
   return (
-    <div className="flex min-h-screen flex-col">
+    // pb-16 reserves space at the very bottom of the page for the fixed
+    // MobileActionBar, so it never covers the Footer's last row; md:pb-0
+    // removes it once the bar itself is hidden at the md breakpoint.
+    <div className="flex min-h-screen flex-col pb-16 md:pb-0">
       <Navbar />
       <main className="flex-1">
         <Routes>
@@ -20,6 +24,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <MobileActionBar />
     </div>
   );
 }

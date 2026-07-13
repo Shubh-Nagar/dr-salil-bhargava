@@ -1,7 +1,10 @@
-import { useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { Phone, Mail, MapPin, Clock, CheckCircle2, MessageCircle } from 'lucide-react';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
+import AuthorityCluster from '@/components/ui/AuthorityCluster';
+import BreathingLung from '@/components/ui/BreathingLung';
+import MagneticButton from '@/components/ui/MagneticButton';
 import { site } from '@/data/site';
 
 interface FormState {
@@ -18,6 +21,17 @@ export default function Contact() {
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [sent, setSent] = useState(false);
 
+  // Lets an Expertise/Service card's MicroCTA preselect the matching reason,
+  // even if this section is already mounted and the visitor clicks a second card.
+  useEffect(() => {
+    function onPreselect(e: Event) {
+      const reason = (e as CustomEvent<string>).detail;
+      if (reason) update('reason', reason);
+    }
+    window.addEventListener('preselect-reason', onPreselect);
+    return () => window.removeEventListener('preselect-reason', onPreselect);
+  }, []);
+
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((f) => ({ ...f, [key]: value }));
     setErrors((e) => ({ ...e, [key]: undefined }));
@@ -26,8 +40,8 @@ export default function Contact() {
   function validate() {
     const next: typeof errors = {};
     if (!form.name.trim()) next.name = 'Please enter your name.';
-    if (!/^[0-9+\s-]{7,}$/.test(form.phone.trim()))
-      next.phone = 'Please enter a valid phone number.';
+    if (!/^\d{10}$/.test(form.phone))
+      next.phone = 'Please enter a valid 10-digit phone number.';
     setErrors(next);
     return Object.keys(next).length === 0;
   }
@@ -37,9 +51,9 @@ export default function Contact() {
     if (!validate()) return;
 
     /**
-     * Zero-backend default: opens the visitor's email client with a
-     * pre-filled appointment request. To collect submissions automatically,
-     * replace this block with a fetch() to Formspree or your own API, e.g.:
+     * Zero-backend default: opens WhatsApp with a pre-filled appointment
+     * request to the clinic's number. To collect submissions automatically
+     * instead, replace this block with a fetch() to Formspree or your own API:
      *
      *   await fetch('https://formspree.io/f/XXXX', {
      *     method: 'POST',
@@ -47,19 +61,36 @@ export default function Contact() {
      *     body: JSON.stringify(form),
      *   });
      */
-    const subject = encodeURIComponent(`Appointment request — ${form.name}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nPhone: ${form.phone}\nReason: ${form.reason}\n\n${form.message}`,
-    );
-    window.location.href = `${site.contact.emailHref}?subject=${subject}&body=${body}`;
+    const message = [
+      `Hi, I'd like to book an appointment.`,
+      '',
+      `Name: ${form.name}`,
+      `Phone: ${form.phone}`,
+      `Reason: ${form.reason}`,
+      form.message && `Message: ${form.message}`,
+    ]
+      .filter(Boolean)
+      .join('\n');
+    window.open(`${site.contact.whatsappHref}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
 
     setSent(true);
     setForm(empty);
   }
 
   return (
-    <section id="contact" className="scroll-mt-24 bg-pine py-20 text-mist sm:py-28">
-      <div className="container-x grid gap-12 lg:grid-cols-[1fr_1fr]">
+    <section id="contact" className="scroll-mt-24 relative overflow-hidden bg-pine py-20 text-mist sm:py-28">
+      {/* Background image is fixed to the viewport on larger screens, so the
+          section's content scrolls over it rather than moving together with
+          it — `bg-fixed` is dropped below `sm` since fixed-attachment
+          repaints are a known mobile jank source, independent of file size. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[url('/assets/background-appointment.webp')] bg-cover bg-center sm:bg-fixed"
+      />
+      <div aria-hidden="true" className="absolute inset-0 bg-pine/90" />
+      <BreathingLung size="sm" />
+
+      <div className="container-x relative z-10 grid gap-12 lg:grid-cols-[1fr_1fr]">
         {/* Details */}
         <div>
           <SectionHeading
@@ -68,6 +99,10 @@ export default function Contact() {
             intro="Share a few details and the clinic will confirm your appointment. For urgent concerns, please call directly."
             tone="dark"
           />
+
+          <div className="mt-6">
+            <AuthorityCluster tone="dark" />
+          </div>
 
           <div className="mt-8 space-y-5">
             <ContactRow icon={MapPin} label="Clinic">
@@ -131,8 +166,8 @@ export default function Contact() {
                 <CheckCircle2 className="h-14 w-14 text-breath" aria-hidden="true" />
                 <h3 className="mt-4 text-2xl font-semibold text-ink">Almost there!</h3>
                 <p className="mt-2 max-w-xs text-sm text-slate-muted">
-                  Your email app should have opened with the request pre-filled. If it didn’t, please
-                  call us at {site.contact.phoneDisplay}.
+                  WhatsApp should have opened with your request pre-filled — just hit send. If it
+                  didn’t open, please call us at {site.contact.phoneDisplay}.
                 </p>
                 <button
                   type="button"
@@ -157,10 +192,12 @@ export default function Contact() {
                   id="phone"
                   label="Phone number"
                   type="tel"
+                  inputMode="numeric"
+                  maxLength={10}
                   value={form.phone}
-                  onChange={(v) => update('phone', v)}
+                  onChange={(v) => update('phone', v.replace(/\D/g, '').slice(0, 10))}
                   error={errors.phone}
-                  placeholder="e.g. +91 98765 43210"
+                  placeholder="e.g. 9876543210"
                   autoComplete="tel"
                 />
 
@@ -196,9 +233,11 @@ export default function Contact() {
                   />
                 </div>
 
-                <button type="submit" className="btn-primary w-full">
-                  Request Appointment
-                </button>
+                <MagneticButton className="block w-full">
+                  <button type="submit" className="btn-primary w-full">
+                    Request Appointment
+                  </button>
+                </MagneticButton>
                 <p className="text-center text-xs text-slate-muted">
                   We’ll only use your details to arrange your appointment.
                 </p>
@@ -244,6 +283,8 @@ function Field({
   type = 'text',
   placeholder,
   autoComplete,
+  inputMode,
+  maxLength,
 }: {
   id: string;
   label: string;
@@ -253,6 +294,8 @@ function Field({
   type?: string;
   placeholder?: string;
   autoComplete?: string;
+  inputMode?: React.HTMLAttributes<HTMLInputElement>['inputMode'];
+  maxLength?: number;
 }) {
   return (
     <div>
@@ -265,6 +308,8 @@ function Field({
         value={value}
         placeholder={placeholder}
         autoComplete={autoComplete}
+        inputMode={inputMode}
+        maxLength={maxLength}
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
         onChange={(e) => onChange(e.target.value)}

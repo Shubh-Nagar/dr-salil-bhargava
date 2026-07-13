@@ -9,7 +9,7 @@ export default function TopBar() {
         <div className="flex items-center gap-6">
           <span className="inline-flex items-center gap-2">
             <Clock className="h-3.5 w-3.5 text-breath" aria-hidden="true" />
-            Mon–Sat · 9:00 AM – 8:00 PM
+            {site.contact.hours[0].day} · {site.contact.hours[0].time}
           </span>
           <a
             href={site.contact.emailHref}

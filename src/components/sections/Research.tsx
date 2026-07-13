@@ -1,5 +1,6 @@
 import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
+import AqiCard from '@/components/ui/AqiCard';
 import { site } from '@/data/site';
 
 /** Publications, research and public-health initiatives — clean air & TB work up front. */
@@ -25,10 +26,10 @@ export default function Research() {
               >
                 <article
                   className={[
-                    'flex h-full flex-col rounded-3xl border p-7 transition',
+                    'flex h-full flex-col rounded-3xl border p-7 transition duration-300 hover:-translate-y-1 hover:shadow-xl',
                     featured
-                      ? 'border-pine/20 bg-pine text-mist'
-                      : 'border-mist bg-paper',
+                      ? 'border-pine/20 bg-pine text-mist hover:shadow-pine/25'
+                      : 'border-mist bg-paper hover:border-breath/40 hover:shadow-pine/15',
                   ].join(' ')}
                 >
                   <div className="mb-5 flex items-center justify-between">
@@ -70,6 +71,10 @@ export default function Research() {
             );
           })}
         </div>
+
+        <Reveal delay={0.24}>
+          <AqiCard />
+        </Reveal>
       </div>
     </section>
   );

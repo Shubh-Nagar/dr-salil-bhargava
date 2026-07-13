@@ -1,6 +1,11 @@
-import { motion, useReducedMotion } from 'framer-motion';
-import { CalendarCheck, Phone, BadgeCheck, Award } from 'lucide-react';
+import { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { CalendarCheck, Phone } from 'lucide-react';
 import { site } from '@/data/site';
+import AuthorityCluster from '@/components/ui/AuthorityCluster';
+import BreathingLung from '@/components/ui/BreathingLung';
+import MagneticButton from '@/components/ui/MagneticButton';
+import WelcomeAudio from '@/components/ui/WelcomeAudio';
 
 /**
  * Hero = the thesis. The most characteristic thing in a pulmonologist's
@@ -10,9 +15,15 @@ import { site } from '@/data/site';
  */
 export default function Hero() {
   const reduce = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+  // Subtle depth layer: the portrait column drifts slightly slower than the
+  // page scroll, separating it from the text column. Scoped to the section
+  // itself (not window scroll) so it only moves while the hero is in view.
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] });
+  const portraitY = useTransform(scrollYProgress, [0, 1], [0, 48]);
 
   return (
-    <section id="home" className="relative overflow-hidden bg-paper">
+    <section id="home" ref={sectionRef} className="relative overflow-hidden bg-paper">
       {/* Ambient background wash */}
       <div
         aria-hidden="true"
@@ -22,8 +33,9 @@ export default function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute -right-40 -top-40 h-[36rem] w-[36rem] rounded-full bg-breath/10 blur-3xl"
       />
+      <BreathingLung size="lg" />
 
-      <div className="container-x relative grid items-center gap-12 py-16 md:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
+      <div className="container-x relative z-10 grid items-center gap-12 py-16 md:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
         {/* Copy */}
         <div>
           <motion.p
@@ -60,10 +72,12 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
           >
-            <a href="#contact" className="btn-primary">
-              <CalendarCheck className="h-4 w-4" aria-hidden="true" />
-              Book Appointment
-            </a>
+            <MagneticButton>
+              <a href="#contact" className="btn-primary">
+                <CalendarCheck className="h-4 w-4" aria-hidden="true" />
+                Book Appointment
+              </a>
+            </MagneticButton>
             <a
               href={site.contact.phoneHref}
               className="btn-ghost border-pine/25 text-pine hover:bg-pine hover:text-paper"
@@ -73,26 +87,26 @@ export default function Hero() {
             </a>
           </motion.div>
 
+          <div className="mt-5">
+            <WelcomeAudio />
+          </div>
+
           {/* Trust cues */}
-          <motion.ul
-            className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-muted"
+          <motion.div
+            className="mt-8"
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.35 }}
           >
-            <li className="inline-flex items-center gap-2">
-              <BadgeCheck className="h-4 w-4 text-breath" aria-hidden="true" />
-              {site.doctor.yearsExperience}+ years experience
-            </li>
-            <li className="inline-flex items-center gap-2">
-              <Award className="h-4 w-4 text-brass" aria-hidden="true" />
-              Professor &amp; Head, Respiratory Medicine
-            </li>
-          </motion.ul>
+            <AuthorityCluster tone="light" />
+          </motion.div>
         </div>
 
         {/* Portrait + breathing aura */}
-        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+        <motion.div
+          style={reduce ? undefined : { y: portraitY }}
+          className="relative mx-auto w-full max-w-md lg:max-w-none"
+        >
           <BreathingAura reduce={!!reduce} />
 
           <motion.div
@@ -128,7 +142,7 @@ export default function Hero() {
             <p className="font-mono text-2xl font-medium text-pine">{site.doctor.yearsExperience}+</p>
             <p className="text-xs text-slate-muted">years caring for lungs</p>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
